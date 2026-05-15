@@ -15,29 +15,17 @@
 
 ## How the repos relate
 
-```
-                        ┌────────────────────┐
-                        │   l10n-bulgaria    │  CE core (LGPL/AGPL)
-                        │   (36 modules)     │
-                        └──────────┬─────────┘
-                                   │ depends on / extends
-        ┌──────────────────────────┼──────────────────────────┐
-        │                          │                          │
-┌───────▼────────┐  ┌──────────────▼──────────┐  ┌────────────▼──────────────┐
-│ l10n-bulgaria- │  │  l10n-bulgaria-ee       │  │  l10n-bulgaria-expert     │
-│ oca (25)       │  │  (40 OPL-1)             │  │  (10 OPL-1)               │
-│ OCA variants   │  │  Payroll, NRA decls,    │  │  InfoPay variants, VAT    │
-│                │  │  InfoPay, contracts     │  │  Art. 69/82, MRP, time-   │
-│                │  │                          │  │  machine                  │
-└────────────────┘  └──────────────┬──────────┘  └───────────────────────────┘
-                                   │
-                          ┌────────▼────────────┐
-                          │ l10n-bulgaria-      │
-                          │ enterprise (4)      │
-                          │ Odoo Enterprise     │
-                          │ add-ons (ECB rates, │
-                          │ license, VAT)       │
-                          └─────────────────────┘
+```mermaid
+graph TD
+  CE["l10n-bulgaria · CE core<br/>36 · LGPL / AGPL"]
+  OCA["l10n-bulgaria-oca<br/>OCA variants · 25"]
+  EE["l10n-bulgaria-ee<br/>Payroll · NRA · InfoPay<br/>40 · OPL-1"]
+  EXP["l10n-bulgaria-expert<br/>InfoPay · VAT 69/82 · MRP<br/>10 · OPL-1"]
+  ENT["l10n-bulgaria-enterprise<br/>ECB rates · license · VAT<br/>4 · OPL-1"]
+  CE --> OCA
+  CE --> EE
+  CE --> EXP
+  EE --> ENT
 ```
 
 ## Functional groupings (cross-repo)
@@ -177,15 +165,17 @@
 
 ## Dependency hierarchy (simplified)
 
-```
-Level 1: l10n_bg → l10n_bg_config → partner_multilang → l10n_bg_multilang
-Level 2: l10n_bg_city → l10n_bg_tax_offices → l10n_bg_company_registry
-Level 3: l10n_bg_bank_wallet → l10n_bg_infopay → bridge modules (oca/ee)
-Level 4: l10n_bg_api_nra → declaration sub-modules
-Level 5: l10n_bg_report_theme → l10n_bg_reports_audit → l10n_bg_reports_config
-Level 6: l10n_bg_tariff_code → taric_ai_classifier
-Level 7: l10n_bg_hr_holidays + l10n_bg_payroll_classifications → l10n_bg_hr_payroll
-Level 8: l10n_bg_hr_payroll → contract-type extensions + NRA payroll declarations + garnishment + A1
+```mermaid
+graph LR
+  L1["L1 · l10n_bg → config → partner_multilang → multilang"]
+  L2["L2 · city → tax_offices → company_registry"]
+  L3["L3 · bank_wallet → infopay → bridges (oca / ee)"]
+  L4["L4 · api_nra → declaration sub-modules"]
+  L5["L5 · report_theme → reports_audit → reports_config"]
+  L6["L6 · tariff_code → taric_ai_classifier"]
+  L7["L7 · hr_holidays + payroll_classifications → hr_payroll"]
+  L8["L8 · hr_payroll → contracts + NRA decls + garnishment + A1"]
+  L1 --> L2 --> L3 --> L4 --> L5 --> L6 --> L7 --> L8
 ```
 
 ## Installation order (clean DB)
