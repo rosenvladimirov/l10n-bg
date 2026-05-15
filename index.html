@@ -10,12 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Golos+Text:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet"/>
 <style>
 :root{
- --bg:#EAF1FA;--bg2:#F2F7FC;--card:#FFFFFF;--rail:#E8F0FA;
+ --bg:#FFFFFF;--bg2:#F5F8FD;--card:#FFFFFF;--rail:#FFFFFF;
  --ink:#2B3A55;--soft:#5C6E8E;--faint:#90A0BD;
  --blue:#5E86CE;--blue-deep:#3F62A8;--blue-soft:#DCE7F8;--blue-wash:#EEF4FC;
- --mint:#7FC8B8;--coral:#EFA6A0;--lav:#B9AEE4;
+ --mint:#7FC8B8;--cherry:#B25468;--cherry-bd:#E7C2CC;--cherry-bg:#FBF0F3;--lav:#B9AEE4;
  --rule:#D6E2F1;--rule-2:#E6EEF9;
- --sh:0 8px 30px rgba(63,98,168,.10);--sh-s:0 2px 10px rgba(63,98,168,.07);
+ --sh:0 20px 56px rgba(108,148,214,.22);--sh-s:0 10px 30px rgba(108,148,214,.15);
  --disp:'Spectral',Georgia,serif;--ui:'Golos Text',system-ui,sans-serif;
  --mono:'JetBrains Mono',ui-monospace,monospace;
  --rail-w:312px;
@@ -23,10 +23,10 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--ui);font-size:15.5px;line-height:1.6;
- background-image:radial-gradient(1100px 520px at 80% -8%,rgba(94,134,206,.13),transparent 60%),
-  linear-gradient(rgba(94,134,206,.035) 1px,transparent 1px),
-  linear-gradient(90deg,rgba(94,134,206,.035) 1px,transparent 1px);
- background-size:auto,52px 52px,52px 52px}
+ background-image:radial-gradient(1000px 440px at 84% -12%,rgba(108,148,214,.06),transparent 62%),
+  linear-gradient(rgba(94,134,206,.016) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(94,134,206,.016) 1px,transparent 1px);
+ background-size:auto,56px 56px,56px 56px}
 ::selection{background:var(--blue);color:#fff}
 a{color:var(--blue-deep);text-decoration:none}
 .mono{font-family:var(--mono)}
@@ -49,18 +49,20 @@ header{position:sticky;top:0;z-index:50;background:rgba(234,241,250,.86);backdro
  padding:8px 12px;font-family:var(--mono);font-size:12px;color:var(--ink);cursor:pointer}
 
 /* hero */
-.hero{max-width:1480px;margin:0 auto;padding:54px 26px 30px}
-.kick{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;
- color:var(--blue-deep);display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.kick::before{content:"";width:38px;height:2px;background:var(--blue);border-radius:2px}
-.hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,4.6vw,3.6rem);
- line-height:1.04;letter-spacing:-.015em;max-width:18ch}
+.hero{max-width:1480px;margin:0 auto;padding:26px 26px 16px;display:flex;gap:38px;
+ align-items:flex-end;justify-content:space-between;flex-wrap:wrap}
+.htext{flex:1 1 560px;min-width:300px}
+.kick{font-family:var(--mono);font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;
+ color:var(--blue-deep);display:flex;align-items:center;gap:11px;margin-bottom:9px}
+.kick::before{content:"";width:32px;height:2px;background:var(--blue)}
+.hero h1{font-family:var(--disp);font-weight:700;font-size:clamp(1.5rem,2.9vw,2.25rem);
+ line-height:1.1;letter-spacing:-.012em;max-width:26ch}
 .hero h1 em{font-style:italic;color:var(--blue-deep)}
-.hero p{color:var(--soft);font-size:clamp(1rem,1.4vw,1.18rem);max-width:62ch;margin-top:18px}
-.chips-stat{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
-.cs{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:14px 20px;box-shadow:var(--sh-s)}
-.cs b{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--blue-deep);display:block;line-height:1}
-.cs span{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+.hero p{color:var(--soft);font-size:clamp(.92rem,1vw,1.02rem);max-width:64ch;margin-top:9px}
+.chips-stat{display:flex;gap:9px;flex-wrap:wrap;flex:0 0 auto}
+.cs{background:var(--card);border:1px solid var(--rule);padding:9px 15px;box-shadow:var(--sh-s)}
+.cs b{font-family:var(--disp);font-weight:700;font-size:1.15rem;color:var(--blue-deep);display:block;line-height:1.05}
+.cs span{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
 
 /* layout */
 .shell{max-width:1480px;margin:24px auto 0;padding:0 26px 70px;display:grid;
@@ -79,6 +81,9 @@ header{position:sticky;top:0;z-index:50;background:rgba(234,241,250,.86);backdro
  background:var(--bg2);color:var(--soft);cursor:pointer;transition:.16s}
 .rf:hover{border-color:var(--blue)}
 .rf.on{background:var(--blue);color:#fff;border-color:var(--blue)}
+.rf.paid{color:var(--cherry);border-color:var(--cherry-bd);background:var(--cherry-bg)}
+.rf.paid:hover{border-color:var(--cherry)}
+.rf.paid.on{background:var(--cherry);color:#fff;border-color:var(--cherry)}
 .docs-q{margin-bottom:8px}
 .gnode{margin:4px 0}
 .ghead{display:flex;align-items:center;gap:8px;font-family:var(--ui);font-weight:600;font-size:13px;
@@ -106,7 +111,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(234,241,250,.86);backdro
 .rhead .badge{font-family:var(--mono);font-size:10.5px;padding:4px 9px;border-radius:999px;
  border:1px solid var(--rule);color:var(--soft);background:var(--card)}
 .badge.open{color:#2f8d77;border-color:#bfe3da;background:#effaf7}
-.badge.paid{color:#c66a62;border-color:#f1cdc9;background:#fdf2f1}
+.badge.paid{color:var(--cherry);border-color:var(--cherry-bd);background:var(--cherry-bg);font-weight:600}
 .rhead .ghl{margin-left:auto;font-family:var(--mono);font-size:12px}
 .rbody{padding:34px 44px 60px;max-width:none}
 .doc{font-family:var(--ui);color:var(--ink);font-size:15.5px;line-height:1.72}
@@ -134,8 +139,8 @@ header{position:sticky;top:0;z-index:50;background:rgba(234,241,250,.86);backdro
 .doc hr{border:0;border-top:1px solid var(--rule);margin:2em 0}
 .doc img{max-width:100%}
 .empty{padding:90px 40px;text-align:center;color:var(--faint);font-family:var(--mono)}
-.langnote{font-family:var(--mono);font-size:12px;color:var(--coral);background:#fdf2f1;
- border:1px solid #f1cdc9;border-radius:10px;padding:10px 14px;margin-bottom:18px;display:none}
+.langnote{font-family:var(--mono);font-size:12px;color:var(--cherry);background:var(--cherry-bg);
+ border:1px solid var(--cherry-bd);padding:10px 14px;margin-bottom:18px;display:none}
 
 footer{max-width:1480px;margin:0 auto;padding:48px 26px 70px;text-align:center;color:var(--soft)}
 footer .sig{font-family:var(--disp);font-weight:700;font-size:1.5rem;color:var(--ink)}
@@ -152,6 +157,10 @@ footer .m{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:1
  .bar .sp{display:none}
  .rbody{padding:26px 22px 50px}.rhead{padding:18px 22px}
 }
+/* squared aesthetic — no radius on any button or panel */
+.lang,.lang button,.gh,.mnav,.cs,.rail,.search,.search input,.rf,.ghead,.mi,
+.reader,.rhead,.badge,.langnote,.doc code,.doc pre,.doc blockquote,
+.kick::before,.rail::-webkit-scrollbar-thumb{border-radius:0!important}
 </style>
 </head>
 <body>
@@ -168,9 +177,11 @@ footer .m{font-family:var(--mono);font-size:12px;color:var(--faint);margin-top:1
 </header>
 
 <section class="hero">
- <div class="kick"><span data-bg="Регистър &amp; документация" data-en="Registry &amp; documentation">Регистър &amp; документация</span></div>
- <h1 data-bg="Българската <em>локализация</em> за Odoo — всичко в едно" data-en="The Bulgarian <em>localization</em> for Odoo — all in one">Българската <em>локализация</em> за Odoo — всичко в едно</h1>
- <p data-bg="Пълните README на всеки модул, събрани в една страница: счетоводство, ТРЗ, банкиране, интеграции с НАП / НОИ / НСИ, фискални принтери, разплащания и AI. Двуезично, с търсене." data-en="Every module's full README gathered into one page: accounting, payroll, banking, NRA / NSI / NOI integration, fiscal printers, payments and AI. Bilingual, searchable.">…</p>
+ <div class="htext">
+  <div class="kick"><span data-bg="Регистър &amp; документация" data-en="Registry &amp; documentation">Регистър &amp; документация</span></div>
+  <h1 data-bg="Българската <em>локализация</em> за Odoo — всичко в едно" data-en="The Bulgarian <em>localization</em> for Odoo — all in one">Българската <em>локализация</em> за Odoo — всичко в едно</h1>
+  <p data-bg="Пълните README на всеки модул, събрани в една страница: счетоводство, ТРЗ, банкиране, интеграции с НАП / НОИ / НСИ, фискални принтери, разплащания и AI. Двуезично, с търсене." data-en="Every module's full README gathered into one page: accounting, payroll, banking, NRA / NSI / NOI integration, fiscal printers, payments and AI. Bilingual, searchable.">…</p>
+ </div>
  <div class="chips-stat">
   <div class="cs"><b>117</b><span data-bg="модула" data-en="modules">модула</span></div>
   <div class="cs"><b>5</b><span data-bg="хранилища" data-en="repositories">хранилища</span></div>
@@ -219,7 +230,8 @@ function applyLang(){
 }
 function renderRF(){
  const it=[['ALL',T('Всички','All')],['CE','CE'],['OCA','OCA'],['EE','EE'],['EXP','expert'],['ENT','enterprise']];
- $('#rfilter').innerHTML=it.map(([v,l])=>`<button class="rf ${RF===v?'on':''}" data-f="${v}">${l}</button>`).join('');
+ const paid={EE:1,EXP:1,ENT:1};
+ $('#rfilter').innerHTML=it.map(([v,l])=>`<button class="rf ${paid[v]?'paid':''} ${RF===v?'on':''}" data-f="${v}">${l}</button>`).join('');
  $$('#rfilter .rf').forEach(b=>b.onclick=()=>{RF=b.dataset.f;renderRF();renderTree()});
 }
 function match(m){
