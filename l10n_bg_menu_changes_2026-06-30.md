@@ -62,8 +62,8 @@ graph TD
 ```mermaid
 graph TD
     I["🏛️ NRA Declarations → Insurance"]:::core
-    I --> F1["✏️⚙️ Declaration Form 1<br/>(беше „Declaration D1"; списък create=0)"]:::adec1
-    I --> F6["✏️ Declaration Form 6<br/>(беше „Declaration D6")"]:::adec6
+    I --> F1["✏️⚙️ Declaration Form 1<br/>(беше 'Declaration D1'; списък create=0)"]:::adec1
+    I --> F6["✏️ Declaration Form 6<br/>(беше 'Declaration D6')"]:::adec6
     I --> G6["✏️ Generate Declaration Form 6…<br/>(wizard)"]:::noi
     I --> LEG["🚫 Декларация Д6 (стара резервна)<br/>(legacy fallback — скрит)"]:::legacy
 
